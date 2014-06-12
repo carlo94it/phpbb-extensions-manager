@@ -1,0 +1,21 @@
+services:
+    carlo94it.phpbbextmanager:
+        class: carlo94it\phpbbextmanager\helper
+        arguments:
+            - %core.root_path%
+
+    carlo94it.phpbbextmanager.install:
+        class: carlo94it\phpbbextmanager\command\install
+        arguments:
+            - @carlo94it.phpbbextmanager
+            - %core.root_path%
+        tags:
+            - { name: console.command }
+
+    carlo94it.phpbbextmanager.vendor:
+        class: carlo94it\phpbbextmanager\command\vendor
+        arguments:
+            - @carlo94it.phpbbextmanager
+            - %core.root_path%
+        tags:
+            - { name: console.command }
